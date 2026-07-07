@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Shield, Lock, Terminal, Cpu, Globe, Award, BookOpen, Sparkles, 
-  ExternalLink, Copy, Check, Mail, Phone, MapPin, Menu, X, 
+  ExternalLink, Copy, Check, Mail, Phone, Menu, X, 
   ChevronDown, Code, Target, Activity, Send, Flame
 } from 'lucide-react';
 
@@ -835,20 +835,7 @@ export default function App() {
                   </button>
                 </div>
 
-                {/* Location card */}
-                <div className="flex items-center rounded-xl border border-white/5 bg-white/[0.01] p-5 backdrop-blur-md">
-                  <div className="flex items-center space-x-4">
-                    <div className="rounded-lg bg-gold-500/10 p-3 text-gold-400">
-                      <MapPin className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <span className="block text-xs font-mono text-gray-500">Location</span>
-                      <span className="font-display text-sm font-semibold text-white leading-relaxed">
-                        182/1, South street, Inammaniyachi,<br />Kovilpatti - 628502, Tamil Nadu
-                      </span>
-                    </div>
-                  </div>
-                </div>
+
 
               </div>
 
