@@ -1,4 +1,4 @@
-# Iniyan A | Cybersecurity Portfolio
+# Portfolio
 
 A premium, modern, and minimalist single-page portfolio website showcasing academic work, tools, certifications, and Capture the Flag (CTF) competition records.
 
