@@ -50,18 +50,43 @@ export default function App() {
     setTimeout(() => setCopiedText(null), 2000);
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formState.name || !formState.email || !formState.message) return;
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "88a88b60-eeab-495b-b9bb-5eeba9cbf16c",
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+          subject: "New Message from Portfolio Website",
+          from_name: "Iniyan Portfolio",
+        }),
+      });
+      
+      const result = await response.json();
+      if (result.success) {
+        setFormSuccess(true);
+        setFormState({ name: '', email: '', message: '' });
+        setTimeout(() => setFormSuccess(false), 5000);
+      } else {
+        console.error("Web3Forms Error:", result);
+        alert("Oops! Something went wrong. Please try emailing me directly at trio832206@gmail.com.");
+      }
+    } catch (error) {
+      console.error("Form Submission Error:", error);
+      alert("Oops! Network error. Please try emailing me directly at trio832206@gmail.com.");
+    } finally {
       setIsSubmitting(false);
-      setFormSuccess(true);
-      setFormState({ name: '', email: '', message: '' });
-      setTimeout(() => setFormSuccess(false), 5000);
-    }, 1500);
+    }
   };
 
   const scrollToSection = (id: string) => {
